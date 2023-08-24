@@ -14,12 +14,12 @@ public class ProfileController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = req.getServletPath();
 		switch (path) {
-			case "/profile": 
+			case "/profile":
 				
 				req.getRequestDispatcher("profile.jsp").forward(req, resp);
 				break;
 			
-			case "/profile-edit": 				
+			case "/profile-edit":
 				req.getRequestDispatcher("profile-edit.jsp").forward(req, resp);
 				break;
 				
