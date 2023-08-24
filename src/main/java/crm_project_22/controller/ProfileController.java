@@ -8,16 +8,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ProfileController", urlPatterns = {"/profile"})
+@WebServlet(name = "ProfileController", urlPatterns = {"/profile","/profile-edit"})
 public class ProfileController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("profile.jsp").forward(req, resp);
+		String path = req.getServletPath();
+		switch (path) {
+			case "/profile": 
+				
+				req.getRequestDispatcher("profile.jsp").forward(req, resp);
+				break;
+			
+			case "/profile-edit": 				
+				req.getRequestDispatcher("profile-edit.jsp").forward(req, resp);
+				break;
+				
+			default:
+				break;
+			
+			
+		}
+		
 
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("profile.jsp").forward(req, resp);
+		String path = req.getServletPath();
+		switch (path) {
+			case "/profile": 
+				
+				req.getRequestDispatcher("profile.jsp").forward(req, resp);
+				break;
+			
+			case "/profile-edit": 				
+				req.getRequestDispatcher("profile-edit.jsp").forward(req, resp);
+				break;
+				
+			default:
+				break;
+			
+			
+		}
 
 	}
 }
