@@ -38,12 +38,7 @@ public class LoginController extends HttpServlet {
 		
 		boolean isSuccess = loginService.checkLogin(req, email, matkhau);
 		
-		if (isSuccess) {
-			System.out.println("đăng nhập thành công");
-		}
-		else {
-			System.out.println("đăng nhập thất bại");
-		}
+		
 		
 		req.setAttribute("isSuccess", isSuccess);
 		req.getRequestDispatcher("login.jsp").forward(req, resp);
