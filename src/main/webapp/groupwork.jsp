@@ -157,7 +157,7 @@
                                             <td>${item.ngayketthuc}</td>
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                                <a href="#" id-groupwork="${item.id}" class="btn btn-sm btn-danger btn-xoa">Xóa</a>
                                                 <a href="groupwork-details" class="btn btn-sm btn-info">Xem</a>
                                             </td>
                                         </tr>
@@ -194,6 +194,7 @@
             $('#example').DataTable();
         });
     </script>
+    <script type="text/javascript" src="js/groupwork.js"></script>
 </body>
 
 </html>
