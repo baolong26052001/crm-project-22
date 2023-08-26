@@ -79,5 +79,20 @@ public class NguoiDungRepository {
 		}
 		return listNguoiDung;
 	}
-	
+	public int deleteById(int id) {
+		int count = 0;
+		String query = "delete from NguoiDung where id = ?";
+		Connection connection = MysqlConfig.getConnection();
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			
+			count = statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }

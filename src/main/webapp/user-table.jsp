@@ -159,7 +159,7 @@
                                             <td>${item.role}</td>
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                                <a href="#" id-user="${item.id}" class="btn btn-sm btn-danger btn-xoa">Xóa</a>
                                                 <a href="user-details" class="btn btn-sm btn-info">Xem</a>
                                             </td>
                                         </tr>
@@ -202,6 +202,7 @@
             $('#example').DataTable();
         });
     </script>
+    <script type="text/javascript" src="js/user.js"></script>
 </body>
 
 </html>
