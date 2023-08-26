@@ -46,4 +46,20 @@ public class GroupworkRepository {
 		
 		return list;
 	}
+	public int deleteById(int id) {
+		int count = 0;
+		String query = "delete from DuAn where id = ?";
+		Connection connection = MysqlConfig.getConnection();
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			
+			count = statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }

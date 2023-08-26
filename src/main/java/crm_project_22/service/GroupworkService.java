@@ -12,4 +12,8 @@ public class GroupworkService {
 	public List<DuAn> getAllDuAn() {
 		return groupworkRepository.getAllDuAn();
 	}
+	public boolean deleteGroupwork(int id) {
+		int count = groupworkRepository.deleteById(id);
+		return count > 0;
+	}
 }
