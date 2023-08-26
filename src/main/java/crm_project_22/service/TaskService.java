@@ -10,4 +10,8 @@ public class TaskService {
 	public List<CongViec> getAllCongViec() {
 		return taskRepository.getAllCongViec();
 	}
+	public boolean deleteTask(int id) {
+		int count = taskRepository.deleteById(id);
+		return count > 0;
+	}
 }
