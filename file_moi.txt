@@ -1,4 +1,8 @@
 hello Máy A đẩy nội dung mới, đã update nội dung
 máy B thêm nội dung vô file mới
+
+noi dung máy B sửa
+
 máy a them noi dung cho task moi
 git server them noi dung.
+
