@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,5 +63,38 @@ public class GroupworkRepository {
 		}
 		
 		return count;
+	}
+	public boolean AddGroupwork(String ten, String ngaybatdau, String ngayketthuc) {
+		String query = "insert into DuAn (ten, ngaybatdau, ngayketthuc) values (?, ?, ?);";
+		
+		Connection connection = MysqlConfig.getConnection();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			if (ten != null && ngaybatdau != null && ngayketthuc != null)
+			{
+				statement.setString(1, ten);
+				
+				statement.setString(2, ngaybatdau);
+				statement.setString(3, ngayketthuc);
+			}
+			
+			
+			int resultSet = statement.executeUpdate();
+		} catch (SQLException e) {
+			
+			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			return false;
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					System.out.println("Lỗi đóng kết nối " + e.getLocalizedMessage());
+				}
+			}
+		}
+		return true;
 	}
 }

@@ -126,23 +126,23 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="<c:url value='/groupwork-add'/>" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Tên dự án</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Tên dự án"
+                                        <input name="ten" type="text" placeholder="Tên dự án"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày bắt đầu</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="ngaybatdau" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày kết thúc</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="ngayketthuc" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
@@ -152,6 +152,13 @@
                                     </div>
                                 </div>
                             </form>
+                            <c:if test="${isSuccess == true}">
+                            	<h4>Thêm thành công</h4>
+                            </c:if>
+                            
+                            <c:if test="${isSuccess == false}">
+                            	<h4>Thêm thất bại</h4>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-md-2 col-12"></div>
