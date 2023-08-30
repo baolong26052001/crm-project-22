@@ -63,19 +63,20 @@ public class UserRepository {
 		
 		return count;
 	}
-	public boolean addUser(String fullname, String email, String password, String phone, String address) {
-		String query = "insert into NguoiDung (fullname, email, matkhau, soDienThoai, diachi, id_loaithanhvien) values (?, ?, ?, ?, ?, 1);";
+	public boolean addUser(String fullname, String email, String password, String phone, String address, int id_loaithanhvien) {
+		String query = "insert into NguoiDung (fullname, email, matkhau, soDienThoai, diachi, id_loaithanhvien) values (?, ?, ?, ?, ?, ?);";
 		Connection connection = MysqlConfig.getConnection();
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
-			if (fullname != null && email != null && password != null && phone != null && address != null)
+			if (fullname != null && email != null && password != null && phone != null && address != null && id_loaithanhvien != 0)
 			{
 				statement.setString(1, fullname);
 				statement.setString(2, email);
 				statement.setString(3, password);
 				statement.setString(4, phone);
 				statement.setString(5, address);
+				statement.setInt(6, id_loaithanhvien);
 			}
 			
 			

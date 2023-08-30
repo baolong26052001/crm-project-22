@@ -129,44 +129,47 @@
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
                             <form class="form-horizontal form-material">
-                                <div class="form-group">
-                                    <label class="col-md-12">Dự án</label>
-                                    <div class="col-md-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Dự án CRM</option>
-                                            <option>Dự án Elearning</option>
-                                            <option>Dự án Rạp chiếu phim</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                            	<div class="form-group">
                                     <label class="col-md-12">Tên công việc</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Tên công việc"
+                                        <input name="ten" type="text" placeholder="Tên công việc"
                                             class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Người thực hiện</label>
+                                    <label class="col-md-12">Mã dự án</label>
                                     <div class="col-md-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Nguyễn Văn Tèo</option>
-                                            <option>Trần Thị Lan</option>
-                                            <option>Cao Ngọc Hiếu</option>
+                                        <select name="id_duan" class="form-control form-control-line">
+                                        	<c:forEach items="${listGroupwork}" var="item">
+                                            <option>${item.id}</option>
+                                            
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-12">Mã người dùng</label>
+                                    <div class="col-md-12">
+                                        <select name="id_nguoidung" class="form-control form-control-line">
+                                            <c:forEach items="${listUser}" var="item">
+                                            <option>${item.id}</option>
+                                            
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày bắt đầu</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="ngaybatdau" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày kết thúc</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="ngayketthuc" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> 
                                     </div>
                                 </div>
@@ -177,6 +180,13 @@
                                     </div>
                                 </div>
                             </form>
+                            <c:if test="${isSuccess == true}">
+                            	<h4>Thêm thành công</h4>
+                            </c:if>
+                            
+                            <c:if test="${isSuccess == false}">
+                            	<h4>Thêm thất bại</h4>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-md-2 col-12"></div>
