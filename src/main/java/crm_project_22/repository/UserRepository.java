@@ -63,4 +63,37 @@ public class UserRepository {
 		
 		return count;
 	}
+	public boolean addUser(String fullname, String email, String password, String phone, String address) {
+		String query = "insert into NguoiDung (fullname, email, matkhau, soDienThoai, diachi, id_loaithanhvien) values (?, ?, ?, ?, ?, 1);";
+		Connection connection = MysqlConfig.getConnection();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			if (fullname != null && email != null && password != null && phone != null && address != null)
+			{
+				statement.setString(1, fullname);
+				statement.setString(2, email);
+				statement.setString(3, password);
+				statement.setString(4, phone);
+				statement.setString(5, address);
+			}
+			
+			
+			int resultSet = statement.executeUpdate();
+		} catch (SQLException e) {
+			
+			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			return false;
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					System.out.println("Lỗi đóng kết nối " + e.getLocalizedMessage());
+				}
+			}
+		}
+		return true;
+	}
 }

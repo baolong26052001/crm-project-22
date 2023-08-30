@@ -126,36 +126,36 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="<c:url value='/user-add'/>" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Full Name</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Johnathan Doe"
+                                        <input name="fullname" type="text" placeholder="Johnathan Doe"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="johnathan@admin.com"
+                                        <input name="email" type="email" placeholder="johnathan@admin.com"
                                             class="form-control form-control-line" name="example-email"
                                             id="example-email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">
-                                        <input type="password" value="password" class="form-control form-control-line">
+                                        <input name="password" type="password" value="password" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Phone No</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="123 456 7890"
+                                        <input name="phone" type="text" placeholder="123 456 7890"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-12">Select Country</label>
                                     <div class="col-sm-12">
-                                        <select class="form-control form-control-line">
+                                        <select name="address" class="form-control form-control-line">
                                             <option>London</option>
                                             <option>India</option>
                                             <option>Usa</option>
@@ -171,6 +171,13 @@
                                     </div>
                                 </div>
                             </form>
+                            <c:if test="${isSuccess == true}">
+                            	<h4>Thêm thành công</h4>
+                            </c:if>
+                            
+                            <c:if test="${isSuccess == false}">
+                            	<h4>Thêm thất bại</h4>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-md-2 col-12"></div>
