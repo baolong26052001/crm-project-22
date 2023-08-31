@@ -136,13 +136,13 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày bắt đầu</label>
                                     <div class="col-md-12">
-                                        <input name="ngaybatdau" type="text" placeholder="yyyy-MM-dd"
+                                        <input name="ngaybatdau" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày kết thúc</label>
                                     <div class="col-md-12">
-                                        <input name="ngayketthuc" type="text" placeholder="yyyy-MM-dd"
+                                        <input name="ngayketthuc" type="text" placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">

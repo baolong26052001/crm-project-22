@@ -14,8 +14,4 @@ public class TaskService {
 		int count = taskRepository.deleteById(id);
 		return count > 0;
 	}
-	public boolean addTask(String ten, int id_duan, int id_nguoidung, String ngaybatdau, String ngayketthuc, int id_trangthai) {
-		boolean isSuccess = taskRepository.AddTask(ten, id_duan, id_nguoidung, ngaybatdau, ngayketthuc, id_trangthai);
-		return isSuccess;
-	}
 }

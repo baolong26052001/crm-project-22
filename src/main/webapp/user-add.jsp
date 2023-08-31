@@ -165,18 +165,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-12">Select Role ID</label>
-                                    <div class="col-sm-12">
-                                        <select name="address" class="form-control form-control-line">
-                                            <c:forEach items="${listRole}" var="item">
-                                            <option>${item.id}</option>
-                                            
-                                            </c:forEach>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-success">Add User</button>
                                         <a href="user-table" class="btn btn-primary">Quay lại</a>
