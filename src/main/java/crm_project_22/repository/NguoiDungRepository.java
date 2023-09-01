@@ -66,7 +66,7 @@ public class NguoiDungRepository {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 		} finally {
 			if (connection != null) {
 				try {

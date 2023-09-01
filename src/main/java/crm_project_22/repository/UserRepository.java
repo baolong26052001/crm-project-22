@@ -18,6 +18,7 @@ public class UserRepository {
 		String query = "select nd.id, nd.fullname, nd.email, ltv.ten as role\r\n"
 				+ "from NguoiDung nd, LoaiThanhVien ltv \r\n"
 				+ "where nd.id_loaithanhvien = ltv.id;";
+		System.out.println(query);
 		Connection connection = MysqlConfig.getConnection();
 		
 		try {
@@ -26,6 +27,7 @@ public class UserRepository {
 			while (resultSet.next()) {
 				NguoiDung nguoiDung = new NguoiDung();
 				nguoiDung.setId(resultSet.getInt("id"));
+				System.out.println(resultSet.getInt("id"));
 				nguoiDung.setFullname(resultSet.getString("fullname"));
 				nguoiDung.setEmail(resultSet.getString("email"));
 				nguoiDung.setRole(resultSet.getString("role"));
@@ -33,7 +35,7 @@ public class UserRepository {
 				list.add(nguoiDung);
 			}
 		} catch (Exception e) {
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 		} finally {
 			if (connection != null) {
 				try {
@@ -71,18 +73,23 @@ public class UserRepository {
 			PreparedStatement statement = connection.prepareStatement(query);
 			if (fullname != null && email != null && password != null && phone != null && address != null)
 			{
-				statement.setString(1, fullname);
-				statement.setString(2, email);
-				statement.setString(3, password);
-				statement.setString(4, phone);
-				statement.setString(5, address);
+				if (fullname != "" && email != "" && password != "" && phone != "" && address != "")
+				{
+					statement.setString(1, fullname);
+					statement.setString(2, email);
+					statement.setString(3, password);
+					statement.setString(4, phone);
+					statement.setString(5, address);
+				}
+				
 			}
 			
 			
 			int resultSet = statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 			return false;
 		} finally {
 			if (connection != null) {

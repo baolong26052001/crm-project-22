@@ -34,7 +34,7 @@ public class GroupworkRepository {
 				list.add(duAn);
 			}
 		} catch (Exception e) {
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 		} finally {
 			if (connection != null) {
 				try {

@@ -48,7 +48,7 @@ public class TaskRepository {
 				list.add(congViec);
 			}
 		} catch (Exception e) {
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 		} finally {
 			if (connection != null) {
 				try {

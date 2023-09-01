@@ -32,7 +32,7 @@ public class LoaiThanhVienRepository {
 			int resultSet = statement.executeUpdate();
 		} catch (SQLException e) {
 			
-			System.out.println("Lỗi thực thi câu query" + e.getLocalizedMessage());
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
 			return false;
 		} finally {
 			if (connection != null) {
