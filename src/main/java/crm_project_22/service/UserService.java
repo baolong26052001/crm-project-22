@@ -16,8 +16,8 @@ public class UserService {
 		int count = userRepository.deleteById(id);
 		return count > 0;
 	}
-	public boolean AddUser(String fullname, String email, String password, String phone, String address) {
-		boolean isSuccess = userRepository.addUser(fullname, email, password, phone, address);
+	public boolean AddUser(String fullname, String email, String password, String phone, String address, int id_loaithanhvien) {
+		boolean isSuccess = userRepository.addUser(fullname, email, password, phone, address, id_loaithanhvien);
 		return isSuccess;
 	}
 }

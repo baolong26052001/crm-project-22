@@ -50,7 +50,8 @@ public class UserController extends HttpServlet {
 			String password = req.getParameter("password");
 			String phone = req.getParameter("phone");
 			String address = req.getParameter("address");
-			boolean isSuccess = userService.AddUser(fullname, email, password, phone, address);
+			int id_loaithanhvien = Integer.parseInt(req.getParameter("id_loaithanhvien"));
+			boolean isSuccess = userService.AddUser(fullname, email, password, phone, address, id_loaithanhvien);
 			req.setAttribute("isSuccess", isSuccess);
 			req.getRequestDispatcher("user-add.jsp").forward(req, resp);
 			break;
