@@ -78,4 +78,39 @@ public class TaskRepository {
 		
 		return count;
 	}
+	public boolean AddTask(String ten, int id_duan, int id_nguoidung, String ngaybatdau, String ngayketthuc, int id_trangthai) {
+		String query = "insert into CongViec (ten, id_duan, id_nguoidung, ngaybatdau, ngayketthuc, id_trangthai) values (?, ?,?,?,?,?);";
+		
+		Connection connection = MysqlConfig.getConnection();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			if (ten != null && id_duan != 0 && id_nguoidung != 0 && ngaybatdau != null && ngayketthuc != null && id_trangthai != 0)
+			{
+				statement.setString(1, ten);
+				statement.setInt(2, id_duan);
+				statement.setInt(3, id_nguoidung);
+				statement.setString(4, ngaybatdau);
+				statement.setString(5, ngayketthuc);
+				statement.setInt(6, id_trangthai);
+			}
+			
+			
+			int resultSet = statement.executeUpdate();
+		} catch (SQLException e) {
+			
+			System.out.println("Lỗi thực thi câu query " + e.getLocalizedMessage());
+			return false;
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					System.out.println("Lỗi đóng kết nối " + e.getLocalizedMessage());
+				}
+			}
+		}
+		return true;
+	}
 }
