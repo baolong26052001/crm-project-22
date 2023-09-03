@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "customerFilter", urlPatterns = {"/role-add","/user-add","/task-add","/groupwork-add"})
+@WebFilter(filterName = "customerFilter", urlPatterns = {"/role-add","/user-add","/task-add","/groupwork-add","/profile"})
 public class CustomerFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -29,6 +29,14 @@ public class CustomerFilter implements Filter {
 		switch (path) {
 			case "/role-add": 
 				if (roleName != null && roleName.toUpperCase().equals("ADMIN")) {
+					chain.doFilter(servletRequest, response);
+				}
+				else {
+					servletResponse.sendRedirect(contextPath + "/login");
+				}
+				break;
+			case "/profile":
+				if (roleName != null) {
 					chain.doFilter(servletRequest, response);
 				}
 				else {
