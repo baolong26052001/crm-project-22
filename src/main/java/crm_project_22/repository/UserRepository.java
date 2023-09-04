@@ -18,7 +18,7 @@ public class UserRepository {
 		String query = "select nd.id, nd.fullname, nd.email, ltv.ten as role\r\n"
 				+ "from NguoiDung nd, LoaiThanhVien ltv \r\n"
 				+ "where nd.id_loaithanhvien = ltv.id;";
-		//System.out.println(query);
+		
 		Connection connection = MysqlConfig.getConnection();
 		
 		try {
@@ -27,7 +27,7 @@ public class UserRepository {
 			while (resultSet.next()) {
 				NguoiDung nguoiDung = new NguoiDung();
 				nguoiDung.setId(resultSet.getInt("id"));
-				//System.out.println(resultSet.getInt("id"));
+				
 				nguoiDung.setFullname(resultSet.getString("fullname"));
 				nguoiDung.setEmail(resultSet.getString("email"));
 				nguoiDung.setRole(resultSet.getString("role"));
